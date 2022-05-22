@@ -1,0 +1,33 @@
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+
+@mixin font($fname, $fweight, $number, $fstyle) {
+  @font-face {
+    font-family: $fname;
+    font-style: $fstyle;
+    font-weight: $number;
+    font-display: swap;
+    src: url('../fonts/' + $fname + '-' + $fweight + '.woff') format('woff');
+  }
+}
+$browser-context: 16; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+@mixin breakpoints($breakpoint, $minmax: max-width) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media ( $minmax: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}

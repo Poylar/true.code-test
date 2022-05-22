@@ -1,0 +1,23 @@
+.modal.col.js-modal
+  .container 
+    .modal__close.js-close
+      svg(width="12px" height="12px")
+        use(xlink:href="sprite.svg#cross_sprite")
+    h3.modal__title
+      | Бронирование
+      br
+      | Билетов
+    form.modal__form.form(action="/")
+      .grid-3.form__grid
+        label.form__label.col
+          span.form__title Дата заезда
+          input.form__item.form__input_in.form__item--error.js-start.adv(type="text" placeholder="01.05.2022" required)
+        label.form__label.col
+          span.form__title Дата выезда
+          input.form__item.form__input_out.js-end(type="text" placeholder="13.05.2032")
+        label.form__label.col
+          span.form__title Количество
+          input.form__item.form__input_count(type="text" placeholder="1 человек")
+        input.form__submit.btn.btn--secondary(type="submit" value="Купить билеты")
+
+

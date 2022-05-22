@@ -1,0 +1,15 @@
+header.header.row.container.space-between.align-center
+  .header__logo 
+    a.header__logo-link(href="/") 
+      img.header__logo-img(src="./images/logo.svg" alt="Mars")
+  nav.header__nav.js-menu
+    ul.header__nav-list.row
+      each items in ['о марсе' , 'процесс' , 'билеты' , 'новости' , 'контакты']
+        li.header__nav-item 
+          a.header__nav-link(href="#")= items
+    button.header__btn.header__menu-btn.btn.btn--primary.js-tickets.hidden-desktop купить билеты
+  button.header__btn.btn.btn--primary.js-tickets купить билеты
+  button.header__mobile-btn.hidden-desktop.js-open-menu
+    span 
+    span 
+    span 
